@@ -1,0 +1,43 @@
+syntax = "proto3";
+package pbtrial;
+
+import "google/api/annotations.proto";
+import "google/protobuf/descriptor.proto";
+
+
+message User {
+    string name = 1;
+    int32 age = 2;
+}
+
+service UserService {
+    rpc AddUser (AddUserRequest) returns (AddUserResponse) {
+        option (google.api.http) = {
+            post: "/grpc/adduser"
+            body: "*"
+        };
+    };
+    rpc GetUser (GetUserRequest) returns (GetUserResponse){
+        option (google.api.http) = {
+            post: "/grpc/getuser"
+            body: "*"
+        };
+    };
+}
+
+message AddUserRequest {
+    User user = 1;
+}
+message AddUserResponse{}
+
+message GetUserRequest {
+    string username = 1;
+}
+message GetUserResponse{
+    User user =1;
+}
+
+message DeleteUserRequest {
+    string username = 1;
+}
+message DeleteUserResponse{}
