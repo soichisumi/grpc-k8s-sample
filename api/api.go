@@ -84,17 +84,17 @@ func (s *UserServiceServer) AddUser(ctx context.Context, req *apipb.AddUserReque
 func (s *UserServiceServer) GetUser(ctx context.Context, req *apipb.GetUserRequest) (*apipb.GetUserResponse, error) {
 	md, ok := metadata.FromIncomingContext(ctx)
 	if !ok {
-		return nil, grpc.Errorf(codes.Unauthenticated, "valid token required.")
+		return nil, grpc.Errorf(codes.Unauthenticated, "valid token required. md: %+v", md)
 	}
 
 	jwtToken, ok := md["authorization"]
 	if !ok {
-		return nil, grpc.Errorf(codes.Unauthenticated, "valid token required.")
+		return nil, grpc.Errorf(codes.Unauthenticated, "valid token required. authorization not found. md: %+v", md)
 	}
 
 	_, err := validateToken(jwtToken[0], s.PubKey)
 	if err != nil {
-		return &apipb.GetUserResponse{}, status.Error(codes.Unauthenticated, fmt.Sprintf("valid token required."))
+		return &apipb.GetUserResponse{}, status.Error(codes.Unauthenticated, fmt.Sprintf("valid token required. pubkey error: %+v", err))
 	}
 
 	username := req.Username
