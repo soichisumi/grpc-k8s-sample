@@ -1,7 +1,8 @@
-package api
+package main
 
 import (
-	"github.com/soichisumi/protobuf-trial/pbtrial"
+	"fmt"
+	"github.com/soichisumi/grpc-auth-sample/api-pb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 	"log"
@@ -17,11 +18,15 @@ func main() {
 	if err != nil {
 		log.Fatalf("failed to listen: %+v\n", err)
 	}
-	server, _ := NewServer()
+	server, err := NewServer("./privKey.pem", "./privKey.pem.pub.pkcs8")
+	if err != nil{
+		log.Fatalf("failed to create server: %+v\n", err)
+	}
 	s := grpc.NewServer()
 
-	pbtrial.RegisterUserServiceServer(s, server)
+	apipb.RegisterUserServiceServer(s, server)
 	reflection.Register(s)
+	fmt.Printf("grpc server is running on port:%s...\n", port)
 	if err := s.Serve(lis); err != nil {
 		log.Fatalln(err)
 	}
