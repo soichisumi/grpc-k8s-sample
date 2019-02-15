@@ -4,10 +4,9 @@ package apipb;
 import "google/api/annotations.proto";
 import "google/protobuf/descriptor.proto";
 
-
 message User {
     string name = 1;
-    int32 age = 2;
+    string password = 2;
 }
 
 service UserService {
@@ -44,8 +43,7 @@ message GetUserResponse{
 }
 
 message LoginRequest {
-    string username = 1;
-    string password = 2;
+    User user = 1;
 }
 
 message LoginResponse {
