@@ -6,7 +6,6 @@ pb:
 pbgw:
 	protoeasy --go --grpc --grpc-gateway --go-import-path github.com/soichisumi/grpc-auth-sample --out api-pb api-pb
 
-
 .PHONY: gen-priv
 gen-rsa:
 	ssh-keygen -t rsa -b 4096 -f privKey.pem
