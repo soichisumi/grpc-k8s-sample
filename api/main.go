@@ -9,6 +9,7 @@ import (
 	"github.com/soichisumi/grpc-auth-sample/auth"
 	"github.com/soichisumi/grpc-auth-sample/meta"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/reflection"
 	"io/ioutil"
 	"log"
@@ -19,12 +20,26 @@ const (
 	port = ":3000"
 	rsaPrivateKeyPath = "./privKey.pem"
 	rsaPublicKeyPath = "./privKey.pem.pub.pkcs8"
+	AuthorizationKey = "authorization"
 )
 
 var (
 	PrivKey *rsa.PrivateKey       // to generate token
 	PubKey  *rsa.PublicKey        // to validate token
 )
+
+func fromMeta(ctx context.Context, key string) (string, error) {
+	md, ok := metadata.FromIncomingContext(ctx)
+	if !ok {
+		return "", fmt.Errorf("not found metadata")
+	}
+	vs := md[key]
+	if len(vs) == 0 {
+		return "", fmt.Errorf("not found %s in metadata", key)
+	}
+	return vs[0], nil
+}
+
 
 func validateToken(token string) (*jwt.Token, error) {
 	jwtToken, err := jwt.Parse(token, func(t *jwt.Token) (interface{}, error) {
@@ -42,7 +57,7 @@ func validateToken(token string) (*jwt.Token, error) {
 
 func authenticationFunc() auth.AuthenticationFunc {
 	return func(ctx context.Context) (context.Context, error) {
-		authorization, err := meta.Authorization(ctx)
+		authorization, err := fromMeta(ctx, AuthorizationKey)
 		if err != nil {
 			return nil, err
 		}
