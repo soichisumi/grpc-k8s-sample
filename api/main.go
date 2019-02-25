@@ -7,7 +7,6 @@ import (
 	"github.com/dgrijalva/jwt-go"
 	"github.com/soichisumi/grpc-auth-sample/api-pb"
 	"github.com/soichisumi/grpc-auth-sample/auth"
-	"github.com/soichisumi/grpc-auth-sample/meta"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/reflection"
