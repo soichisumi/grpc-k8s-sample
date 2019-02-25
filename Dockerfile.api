@@ -4,7 +4,9 @@ LABEL Maintainer="Soichi Sumi <soichi.sumi@gmail.com>"
 
 ENV GO111MODULE on
 
-ADD ../. /go/src/workspace
-WORKDIR /go/src/workspace
+ADD . /go/src/github.com/soichisumi/grpc-k8s-sample
+WORKDIR /go/src/github.com/soichisumi/grpc-k8s-sample/api
 
-RUN go build -o gw/gw ./gw/
+RUN go build -o ./api .
+
+ENTRYPOINT ["./api"]
