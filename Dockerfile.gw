@@ -1,0 +1,12 @@
+# TODO: minimize
+FROM golang:1.11
+LABEL Maintainer="Soichi Sumi <soichi.sumi@gmail.com>"
+
+ENV GO111MODULE on
+
+ADD ../. /go/src/workspace
+WORKDIR /go/src/workspace
+
+RUN go build -o gw/gw ./gw/
+
+ENTRYPOINT ["./gw/gw"]
