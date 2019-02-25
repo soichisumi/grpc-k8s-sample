@@ -1,4 +1,4 @@
-syntax = "proto3";a
+syntax = "proto3";
 package apipb;
 
 import "google/api/annotations.proto";
