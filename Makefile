@@ -9,3 +9,8 @@ gen-rsa:
 
 gen-pub:
 	ssh-keygen -f privkey.pem.pub -e -m pkcs8 > privkey.pem.pub.pkcs8
+
+# tag for azure container registry: hogehoge.azurecr.io/grpc-xx:latest
+build-containers:
+	docker build --file Dockerfile.api --tag grpc-api .
+	docker build --file Dockerfile.gw --tag grpc-gw .
