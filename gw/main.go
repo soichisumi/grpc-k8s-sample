@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
-	"github.com/soichisumi/grpc-auth-sample/api-pb"
+	"github.com/soichisumi/grpc-k8s-sample/api-pb"
 	"google.golang.org/grpc"
 	"net/http"
 )
