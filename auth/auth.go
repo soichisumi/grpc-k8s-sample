@@ -10,7 +10,7 @@ type AuthenticationFunc func(ctx context.Context) (context.Context, error)
 
 func isAuthorizedMethod(methodName string) bool {
 	switch methodName {
-	case "/apipb.UserService/Login", "/apipb.UserService/AddUser":
+	case "/apipb.UserService/Login", "/apipb.UserService/AddUser", "/apipb.UserService/HealthCheck":
 		return false
 	}
 	return true

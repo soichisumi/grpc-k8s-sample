@@ -216,7 +216,7 @@ var (
 
 	pattern_UserService_Login_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"login"}, ""))
 
-	pattern_UserService_HealthCheck_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"HealthCheck"}, ""))
+	pattern_UserService_HealthCheck_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"healthcheck"}, ""))
 )
 
 var (
