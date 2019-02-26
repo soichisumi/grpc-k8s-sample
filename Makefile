@@ -2,7 +2,11 @@ pb:
 	protoc -I=. -I=${GOPATH}/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis --go_out=plugins=grpc:. ./api-pb/types.proto
 
 pbgw:
-	protoeasy --go --grpc --grpc-gateway --go-import-path github.com/soichisumi/grpc-auth-sample --out api-pb api-pb
+	protoeasy --go --grpc --grpc-gateway --go-import-path github.com/soichisumi/grpc-k8s-sample --out api-pb api-pb
+
+build:
+	GO111MODULE=on go build -o ./api/api ./api
+	GO111MODULE=on go build -o ./gw/gw ./gw
 
 gen-rsa:
 	ssh-keygen -t rsa -b 4096 -f privKey.pem
