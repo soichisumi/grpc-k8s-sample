@@ -12,5 +12,7 @@ gen-pub:
 
 # tag for azure container registry: hogehoge.azurecr.io/grpc-xx:latest
 build-containers:
-	docker build --file Dockerfile.api --tag grpc-api .
-	docker build --file Dockerfile.gw --tag grpc-gw .
+	docker build --file Dockerfile.api --tag testxk8s.azurecr.io/grpc-api .
+	docker build --file Dockerfile.gw --tag testxk8s.azurecr.io/grpc-gw .
+	docker push testxk8s.azurecr.io/grpc-api
+	docker push testxk8s.azurecr.io/grpc-gw
