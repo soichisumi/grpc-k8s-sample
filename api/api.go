@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"github.com/davecgh/go-spew/spew"
 	"github.com/dgrijalva/jwt-go"
-	"github.com/soichisumi/grpc-auth-sample/api-pb"
+	"github.com/soichisumi/grpc-k8s-sample/api-pb"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"time"
@@ -85,4 +85,8 @@ func (s *UserServiceServer) Login(ctx context.Context, req *apipb.LoginRequest) 
 		fmt.Println(err)
 	}
 	return &apipb.LoginResponse{Token: tokenString}, nil
+}
+
+func (s *UserServiceServer) HealthCheck(ctx context.Context, req *apipb.HealthCheckRequest) (*apipb.HealthCheckResponse, error) {
+	return &apipb.HealthCheckResponse{}, nil
 }
