@@ -1,0 +1,49 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: grpc-sample
+  labels:
+    app: grpc-sample
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: grpc-sample
+    spec:
+      containers:
+        # grpc-gw
+        - name: grpc-sample-gw
+          image: testxk8s.azurecr.io/grpc-gw
+          ports:
+            - name: grpc-sample-gw
+              containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /HealthCheck
+              port: 8080
+            initialDelaySeconds: 3
+            # periodSeconds: 10 # Default 10
+            # timeoutSeconds: 1 # Default 1
+            # successThreshold: 1 # Default 1
+            # failureThreshold: 3 # Default 3
+          resources:
+            limits:
+              cpu: 500m
+              memory: 250Mi
+            requests:
+              cpu: 500m
+              memory: 250Mi
+        # grpc-api
+        - name: grpc-sample-api
+          image: testxk8s.azurecr.io/grpc-api
+          ports:
+            - name: grpc-sample-api
+              containerPort: 3000
+          resources:
+            limits:
+              cpu: 500m
+              memory: 250Mi
+            requests:
+              cpu: 500m
+              memory: 250Mi
