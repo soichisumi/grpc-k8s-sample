@@ -4,6 +4,7 @@ github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible h1:7qlOGliEKZXTDg6OTjfoBKDXWrumCAMpl/TFQ4/5kLM=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible/go.mod h1:E3ru+11k8xSBh+hMPgOLZmtrrCbhqsmaPHjLKYnJCaQ=
+github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b h1:VKtxabqXZkF25pY9ekfRL6a582T4P37/31XEstQ5p58=
 github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b/go.mod h1:SBH7ygxi8pfUlaOkMMuAQtPIUF8ecWP5IEl/CR7VP2Q=
 github.com/golang/lint v0.0.0-20180702182130-06c8688daad7/go.mod h1:tluoj9z5200jBnyusfRPU2LqT6J+DAorxEvtC7LHB+E=
 github.com/golang/mock v1.1.1/go.mod h1:oTYuIxOrZwtPieC+H1uAHpcLFnEyAGVDL/k47Jfbm0A=
@@ -14,12 +15,10 @@ github.com/golang/protobuf v1.2.1-0.20181127190454-8d0c54c12466/go.mod h1:Qd/q+1
 github.com/grpc-ecosystem/grpc-gateway v1.7.0 h1:tPFY/SM+d656aSgLWO2Eckc3ExwpwwybwdN5Ph20h1A=
 github.com/grpc-ecosystem/grpc-gateway v1.7.0/go.mod h1:RSKVYQBd5MCa4OVpNdGskqpgL2+G+NZTnrVHpWWfpdw=
 github.com/kisielk/gotool v1.0.0/go.mod h1:XhKaO+MFFWcvkIS/tQcRk01m1F5IRFswLeQ+oQHNcck=
-github.com/soichisumi/grpc-auth-sample v0.0.0-20190226122653-d4f35df95430 h1:ENMpkErLi1uNw910qYhASkk5i5GAQSBfeNeKD6EMSPk=
-github.com/soichisumi/grpc-auth-sample v0.0.0-20190226122653-d4f35df95430/go.mod h1:0yivQCPjo5APcWx2IQuk28ekKDQVtLfkdJPrgw/tHaM=
-github.com/soichisumi/grpc-k8s-sample/api v0.0.0-20190226122653-d4f35df95430 h1:59D64wZPW90zXnEtdy7viR8sNqu+GHH5YzUjmi4yBRE=
-github.com/soichisumi/grpc-k8s-sample/api v0.0.0-20190226122653-d4f35df95430/go.mod h1:clWiekmSVB/Zi1b+Ubpn0N7/QI4Cp8upxhNgg139fIU=
-github.com/soichisumi/grpc-k8s-sample/gw v0.0.0-20190226122653-d4f35df95430 h1:cNOhqQjpQf/vjD2tmUuj7j4wgMVaKrmKVkA6qrmshqo=
-github.com/soichisumi/grpc-k8s-sample/gw v0.0.0-20190226122653-d4f35df95430/go.mod h1:X7Ccrn+kCECG08e+eNavgEQac/W4kzce8u04btQimzg=
+github.com/soichisumi/grpc-k8s-sample/api v0.0.0-20190226133513-4852da91f8b1 h1:DPS0Ke89knxoeO9q5hp+QBYuuC/HTSKVSZ+YWlKytpY=
+github.com/soichisumi/grpc-k8s-sample/api v0.0.0-20190226133513-4852da91f8b1/go.mod h1:clWiekmSVB/Zi1b+Ubpn0N7/QI4Cp8upxhNgg139fIU=
+github.com/soichisumi/grpc-k8s-sample/gw v0.0.0-20190226133513-4852da91f8b1 h1:vlRfRuIC0SBP/9Mhe4um3DQQg10wPDQacm26rt1pHhA=
+github.com/soichisumi/grpc-k8s-sample/gw v0.0.0-20190226133513-4852da91f8b1/go.mod h1:X7Ccrn+kCECG08e+eNavgEQac/W4kzce8u04btQimzg=
 golang.org/x/exp v0.0.0-20190121172915-509febef88a4/go.mod h1:CJ0aWSM057203Lf6IL+f9T1iT9GByDxfZKAQTCR3kQA=
 golang.org/x/lint v0.0.0-20180702182130-06c8688daad7/go.mod h1:UVdnD1Gm6xHRNCYTkRU2/jEulfH38KcIWyp/GAMgvoE=
 golang.org/x/lint v0.0.0-20181026193005-c67002cb31c3/go.mod h1:UVdnD1Gm6xHRNCYTkRU2/jEulfH38KcIWyp/GAMgvoE=
@@ -29,7 +28,9 @@ golang.org/x/net v0.0.0-20181106065722-10aee1819953/go.mod h1:mL1N/T3taQHkDXs73r
 golang.org/x/net v0.0.0-20190225153610-fe579d43d832 h1:2IdId8zoI92l1bUzjAOygcAOkmCe13HY1j0rqPPPzB8=
 golang.org/x/net v0.0.0-20190225153610-fe579d43d832/go.mod h1:mL1N/T3taQHkDXs73rZJwtUhF3w3ftmwwsq0BUmARs4=
 golang.org/x/oauth2 v0.0.0-20180821212333-d2e6202438be/go.mod h1:N/0e6XlmueqKjAGxoOufVs8QHGRruUQn6yWY3a++T0U=
+golang.org/x/sync v0.0.0-20180314180146-1d60e4601c6f h1:wMNYb4v58l5UBM7MYRLPG6ZhfOqbKu7X5eyFl8ZhKvA=
 golang.org/x/sync v0.0.0-20180314180146-1d60e4601c6f/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
+golang.org/x/sys v0.0.0-20180830151530-49385e6e1522 h1:Ve1ORMCxvRmSXBwJK+t3Oy+V2vRW2OetUQBq4rJIkZE=
 golang.org/x/sys v0.0.0-20180830151530-49385e6e1522/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
 golang.org/x/text v0.3.0 h1:g61tztE5qeGQ89tm6NTjjM9VPIm088od1l6aSorWRWg=
 golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
