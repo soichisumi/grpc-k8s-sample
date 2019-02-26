@@ -28,6 +28,11 @@ service UserService {
             body: "*"
         };
     };
+    rpc HealthCheck (HealthCheckRequest) returns (HealthCheckResponse) {
+        option (google.api.http) = {
+            get: "/HealthCheck"
+        };
+    };
 }
 
 message AddUserRequest {
@@ -54,3 +59,6 @@ message DeleteUserRequest {
     string username = 1;
 }
 message DeleteUserResponse{}
+
+message HealthCheckRequest{}
+message HealthCheckResponse{}
